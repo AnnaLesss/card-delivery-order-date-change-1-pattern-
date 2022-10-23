@@ -41,5 +41,9 @@ class DeliveryTest {
         $$("button").findBy(Condition.exactText("Запланировать")).click();
         $("[data-test-id=replan-notification]")
                 .shouldHave(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
+        $("[data-test-id=replan-notification] button").click();
+        $("[data-test-id=success-notification]")
+                .shouldHave(Condition.text("Встреча успешно запланирована на " + secondMeetingDate));
+
     }
 }
